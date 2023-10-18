@@ -1,0 +1,40 @@
+import pymongo
+from pymongo import MongoClient
+client = MongoClient('localhost',27017)
+db1=client['Anurag']
+cl1=db1['mycol1']
+x={"name":"yash"}
+y=cl1.insert_one(x)
+for y in cl1.find():
+      print(y)
+
+a=[]
+a=[{'name':'insta','kaam':'social','time':'5hr',},{'name':'pdai','kaam':'future','time':'5min'},{'name':'game','kaam':'fun','time':'7hr'}]
+y=cl1.insert_many(a)
+print(y.inserted_ids)
+
+for y in cl1.find():
+    print(y)
+
+cl1.update_one({'name':'dell'},{'$set':{'name':'hp'}})
+<pymongo.results.UpdateResult object at 0x000001DA143A7FA0>
+for y in cl1.find():
+    print(y)
+
+cl1.update_one({'name':'pdai'},{'$set':{'name':'socha'}})
+for y in cl1.find():
+    print(y
+
+cl1.update_many({},{'$set':{'time':'8hr'}})
+vaps print
+
+cl1.delete_one({'kaam':'fun'})
+                
+<pymongo.results.DeleteResult object at 0x000001DA143A7BE0>
+for y in cl1.find():
+       print(y)
+
+m=cl1.delete_many({})
+
+for y in cl1.find():
+       print(y)
